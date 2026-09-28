@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "铃RIN",
+  "version": "0.5.0",
+  "identifier": "com.rihe.calendar",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [{
+      "label": "main",
+      "title": "铃RIN",
+      "width": 1280,
+      "height": 820,
+      "minWidth": 980,
+      "minHeight": 650,
+      "center": true
+    }],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' https://api.open-meteo.com https://geocoding-api.open-meteo.com; img-src 'self' asset: data:; style-src 'self' 'unsafe-inline'"
+    }
+  },
+  "plugins": { "sql": { "preload": ["sqlite:rihe.db"] } },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.ico"],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese", "English"]
+      }
+    }
+  }
+}

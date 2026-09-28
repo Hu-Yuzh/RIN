@@ -1,0 +1,13 @@
+node_modules/
+dist/
+src-tauri/target/
+tools/bootstrap/
+releases/**/*.exe
+releases/**/*.msi
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+.env
+.env.*
+!.env.example
